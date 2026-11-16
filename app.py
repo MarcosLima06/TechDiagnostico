@@ -1,4 +1,5 @@
 
+import os
 import psutil
 import socket
 import time
@@ -6,6 +7,11 @@ import platform
 from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
+
+
+
+MODO_DEMO = os.environ.get("MODO_DEMO", "false").lower() == "true"
+
 
 @app.route("/")
 def inicio():
