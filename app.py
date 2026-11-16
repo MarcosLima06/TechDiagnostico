@@ -18,10 +18,239 @@ MODO_DEMO = os.environ.get("MODO_DEMO", "false").lower() == "true"
 def proteger_diagnosticos():
     from flask import request
 
-    if MODO_DEMO and request.path.startswith("/api/"):
+    if MODO_DEMO and request.path.startswith("/api/"): 
         if request.path == "/api/relatorio":
             return None
 
+        
+        if request.path == "/api/sistema":
+            return jsonify({
+                "sistema": "Windows 11 (simulação)",
+                "versao": "Demonstração",
+                "arquitetura": "64 bits",
+                "processador": "Intel Core i5 (simulado)"
+            })
+
+        
+        
+        if request.path == "/api/rede":
+            return jsonify({
+                "status": "Conexão estabelecida (simulação)",
+                "servidor": "1.1.1.1",
+                "porta": 443,
+                "tempo_ms": 25
+            })
+
+        
+        
+        if request.path == "/api/dns":
+            return jsonify({
+                "status": "DNS funcionando (simulação)",
+                "dominio": "google.com",
+                "endereco_ip": "192.0.2.10",
+                "tempo_ms": 25
+            })
+
+            
+        
+
+        
+        if request.path == "/api/memoria":
+            return jsonify({
+                "total_gb": 8,
+                "disponivel_gb": 4.5,
+                "uso_percentual": 43.75
+            })
+            
+            
+        
+        if request.path == "/api/cpu":
+            return jsonify({
+                "uso_percentual": 18.5,
+                "nucleos_fisicos": 4,
+                "processadores_logicos": 8
+            })
+
+
+        
+        if request.path == "/api/disco":
+            return jsonify({
+                "total_gb": 500,
+                "disponivel_gb": 250,
+                "uso_percentual": 50
+            })
+
+        
+        
+        
+        if request.path == "/api/processos":
+            return jsonify([
+                {
+                    "nome": "chrome.exe",
+                    "pid": 1234,
+                    "memoria_mb": 250
+                },
+                {
+                    "nome": "explorer.exe",
+                    "pid": 5678,
+                    "memoria_mb": 120
+                }
+            ])
+
+
+        
+        
+        
+        if request.path == "/api/servicos":
+            return jsonify([
+                {
+                    "nome": "Windows Update",
+                    "status": "running"
+                },
+                {
+                    "nome": "Windows Defender",
+                    "status": "running"
+                },
+                {
+                    "nome": "Spooler de Impressão",
+                    "status": "stopped"
+                }
+            ])
+
+            
+            
+        
+    
+        if request.path == "/api/uptime":
+            return jsonify({
+                "dias": 2,
+                "horas": 5,
+                "minutos": 30,
+                "tempo_formatado": "2 dias, 5 horas e 30 minutos"
+            })
+
+
+        
+        
+        
+        if request.path == "/api/rede-local":
+            return jsonify({
+                "nome_computador": "PC-DEMONSTRACAO",
+                "interfaces": [
+                    {
+                        "interface": "Ethernet",
+                        "endereco_ip": "192.0.2.10",
+                        "mascara": "255.255.255.0"
+                    },
+                    {
+                        "interface": "Wi-Fi",
+                        "endereco_ip": "192.0.2.20",
+                        "mascara": "255.255.255.0"
+                    }
+                ]
+            })
+
+        
+        
+        if request.path == "/api/memoria":
+            return jsonify({
+                "total_gb": 16,
+                "utilizada_gb": 6.4,
+                "disponivel_gb": 9.6,
+                "porcentagem_uso": 40,
+                "situacao": "Uso normal"
+            })
+            
+            
+        
+        if request.path == "/api/cpu":
+            return jsonify({
+                "uso_percentual": 28.5,
+                "nucleos_fisicos": 4,
+                "processadores_logicos": 8
+            })
+
+
+
+        if request.path == "/api/disco":
+            return jsonify({
+                "total_gb": 512,
+                "utilizado_gb": 205,
+                "disponivel_gb": 307,
+                "porcentagem_uso": 40
+            })
+
+        
+        
+        if request.path == "/api/processos":
+            return jsonify([
+                {
+                    "pid": 1250,
+                    "nome": "chrome.exe",
+                    "memoria_mb": 420.5
+                },
+                {
+                    "pid": 2380,
+                    "nome": "Code.exe",
+                    "memoria_mb": 310.2
+                },
+                {
+                    "pid": 3640,
+                    "nome": "explorer.exe",
+                    "memoria_mb": 145.8
+                }
+            ])
+            
+            
+            
+        if request.path == "/api/servicos":
+            return jsonify([
+                {
+                    "nome": "Windows Update",
+                    "status": "running"
+                },
+                {
+                    "nome": "Windows Defender",
+                    "status": "running"
+                },
+                {
+                    "nome": "Spooler de Impressão",
+                    "status": "stopped"
+                }
+            ])
+            
+            
+        
+        if request.path == "/api/uptime":
+            return jsonify({
+                "dias": 2,
+                "horas": 5,
+                "minutos": 30,
+                "tempo_formatado": "2 dias, 5 horas e 30 minutos"
+            })
+            
+            
+        
+        if request.path == "/api/rede-local":
+            return jsonify({
+                "nome_computador": "PC-DEMONSTRACAO",
+                "interfaces": [
+                    {
+                        "interface": "Ethernet",
+                        "endereco_ip": "192.0.2.10",
+                        "mascara": "255.255.255.0"
+                    },
+                    {
+                        "interface": "Wi-Fi",
+                        "endereco_ip": "192.0.2.11",
+                        "mascara": "255.255.255.0"
+                    }
+                ]
+            })
+
+
+
+        
         return jsonify({
             "modo_demo": True,
             "mensagem": "Diagnóstico real disponível apenas na versão local."
