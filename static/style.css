@@ -1,0 +1,1467 @@
+
+/* Configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+/* Título principal */
+h1 {
+    font-size: 42px;
+    color: #38bdf8;
+    margin-bottom: 15px;
+}
+
+/* Subtítulo */
+h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* Descrição */
+p {
+    max-width: 650px;
+    text-align: center;
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+}
+
+/* Botão principal */
+button {
+    background-color: #0284c7;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #0369a1;
+    transform: translateY(-2px);
+}
+
+
+button:disabled {
+    background-color: #475569;
+    color: #ffffff;
+    cursor: wait;
+    opacity: 1;
+    transform: none;
+}
+
+
+/* Área dos resultados */
+#resultadoDiagnostico {
+    width: 100%;
+    max-width: 650px;
+    margin-top: 30px;
+}
+
+/* Painel de diagnóstico */
+.painel-diagnostico {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 25px;
+    width: 100%;
+    text-align: left;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Título do painel */
+.painel-diagnostico h3 {
+    color: #38bdf8;
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Informações do computador */
+.informacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 0;
+    border-bottom: 1px solid #334155;
+}
+
+.informacao:last-child {
+    border-bottom: none;
+}
+
+.informacao strong {
+    color: #cbd5e1;
+}
+
+.informacao span {
+    color: #ffffff;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* Adaptação para celulares */
+@media (max-width: 600px) {
+    .informacao {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .informacao span {
+        text-align: left;
+    }
+}
+
+
+
+/* Espaçamento entre os botões */
+#btnDiagnostico,
+#btnRede {
+    margin: 10px 0;
+}
+
+/* Área do diagnóstico de rede */
+#resultadoRede {
+    width: 100%;
+    max-width: 650px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Espaçamento entre os painéis */
+#resultadoDiagnostico {
+    margin-bottom: 20px;
+}
+
+/* Melhorias nos botões */
+button {
+    min-width: 220px;
+}
+
+button:focus-visible {
+    outline: 3px solid #7dd3fc;
+    outline-offset: 3px;
+}
+
+
+
+/* Botão de diagnóstico DNS */
+#btnDNS {
+    margin: 10px 0;
+}
+
+/* Área dos resultados DNS */
+#resultadoDNS {
+    width: 100%;
+    max-width: 650px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Organização dos resultados */
+#resultadoDiagnostico,
+#resultadoRede,
+#resultadoDNS {
+    overflow-wrap: anywhere;
+}
+
+/* Melhor visualização em celulares */
+@media (max-width: 600px) {
+    #btnDiagnostico,
+    #btnRede,
+    #btnDNS {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+
+/* Status positivo dos diagnósticos */
+.status-sucesso {
+    color: #22c55e !important;
+    font-weight: bold;
+}
+
+
+
+/* Área de resultados da memória RAM */
+#resultadoMemoria {
+    width: 100%;
+    max-width: 650px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+}
+
+/* Espaçamento do botão de memória RAM */
+#btnMemoria {
+    margin: 10px 0;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+    #btnMemoria {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+
+
+/* Indicadores de uso da memória RAM */
+
+.memoria-normal {
+    color: #22c55e;
+    font-weight: bold;
+}
+
+.memoria-atencao {
+    color: #facc15;
+    font-weight: bold;
+}
+
+.memoria-elevada {
+    color: #ef4444;
+    font-weight: bold;
+}
+
+
+/* Prioridade para as cores da memória RAM */
+
+#resultadoMemoria .memoria-normal {
+    color: #22c55e !important;
+}
+
+#resultadoMemoria .memoria-atencao {
+    color: #facc15 !important;
+}
+
+#resultadoMemoria .memoria-elevada {
+    color: #ef4444 !important;
+}
+
+
+
+/* Área de resultados da CPU */
+#resultadoCPU {
+    width: 100%;
+    max-width: 650px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+}
+
+/* Espaçamento do botão da CPU */
+#btnCPU {
+    margin: 10px 0;
+}
+
+/* Indicadores de uso da CPU */
+#resultadoCPU .cpu-normal {
+    color: #22c55e !important;
+    font-weight: bold;
+}
+
+#resultadoCPU .cpu-atencao {
+    color: #facc15 !important;
+    font-weight: bold;
+}
+
+#resultadoCPU .cpu-elevada {
+    color: #ef4444 !important;
+    font-weight: bold;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+    #btnCPU {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+
+
+/* Área de resultados do armazenamento */
+#resultadoDisco {
+    width: 100%;
+    max-width: 650px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+}
+
+/* Espaçamento do botão */
+#btnDisco {
+    margin: 10px 0;
+}
+
+/* Indicadores de armazenamento */
+#resultadoDisco .disco-normal {
+    color: #22c55e !important;
+    font-weight: bold;
+}
+
+#resultadoDisco .disco-atencao {
+    color: #facc15 !important;
+    font-weight: bold;
+}
+
+#resultadoDisco .disco-critico {
+    color: #ef4444 !important;
+    font-weight: bold;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+    #btnDisco {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+
+
+/* Área de resultados dos processos */
+#resultadoProcessos {
+    width: 100%;
+    max-width: 650px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+}
+
+/* Espaçamento do botão */
+#btnProcessos {
+    margin: 10px 0;
+}
+
+/* Organização dos processos */
+.processo-item {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+/* Destaque ao passar o mouse */
+.processo-item:hover {
+    border-color: #38bdf8;
+    transition: border-color 0.3s ease;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+    #btnProcessos {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+
+
+/* Área de resultados dos serviços */
+#resultadoServicos {
+    width: 100%;
+    max-width: 650px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+}
+
+/* Espaçamento do botão */
+#btnServicos {
+    margin: 10px 0;
+}
+
+/* Indicadores dos serviços */
+#resultadoServicos .servico-ativo {
+    color: #22c55e !important;
+    font-weight: bold;
+}
+
+#resultadoServicos .servico-parado {
+    color: #facc15 !important;
+    font-weight: bold;
+}
+
+#resultadoServicos .servico-indisponivel {
+    color: #ef4444 !important;
+    font-weight: bold;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+    #btnServicos {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+
+
+/* Área de resultados do tempo de atividade */
+#resultadoUptime {
+    width: 100%;
+    max-width: 650px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+}
+
+/* Espaçamento do botão */
+#btnUptime {
+    margin: 10px 0;
+}
+
+/* Destaque para o tempo total */
+#resultadoUptime .informacao:last-child span {
+    color: #38bdf8;
+    font-weight: bold;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+    #btnUptime {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+
+
+/* Área de resultados da rede local */
+#resultadoRedeLocal {
+    width: 100%;
+    max-width: 650px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow-wrap: anywhere;
+}
+
+/* Espaçamento do botão */
+#btnRedeLocal {
+    margin: 10px 0;
+}
+
+/* Destaque para os endereços IP */
+#resultadoRedeLocal .processo-item .informacao:nth-child(2) span {
+    color: #38bdf8 !important;
+    font-weight: bold;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+    #btnRedeLocal {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+
+
+/* Área do relatório técnico */
+#resultadoRelatorio {
+    width: 100%;
+    max-width: 650px;
+    margin: 20px 0;
+    overflow-wrap: anywhere;
+}
+
+/* Título do relatório */
+#resultadoRelatorio h3 {
+    color: #38bdf8;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Informações do relatório */
+#resultadoRelatorio .informacao {
+    padding: 12px 0;
+    border-bottom: 1px solid #334155;
+}
+
+/* Destaque dos valores */
+#resultadoRelatorio .informacao span {
+    color: #e2e8f0;
+}
+
+/* Botão de gerar relatório */
+#btnRelatorio {
+    margin: 10px 0;
+}
+
+/* Botão de salvar PDF */
+#btnSalvarPDF {
+    background-color: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin: 10px 0 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#btnSalvarPDF:hover {
+    background-color: #15803d;
+}
+
+/* Ajustes para celulares */
+@media (max-width: 600px) {
+    #btnRelatorio,
+    #btnSalvarPDF {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+
+
+/* Configuração para impressão do relatório */
+
+@media print {
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        min-height: 0 !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    body * {
+        visibility: hidden !important;
+    }
+
+    #resultadoRelatorio,
+    #resultadoRelatorio * {
+        visibility: visible !important;
+    }
+
+    #resultadoRelatorio {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #resultadoRelatorio .painel-diagnostico {
+        background: white !important;
+        color: black !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+
+    #resultadoRelatorio h3,
+    #resultadoRelatorio .informacao strong,
+    #resultadoRelatorio .informacao span {
+        color: black !important;
+    }
+
+    #resultadoRelatorio .informacao {
+        border-bottom: 1px solid #ccc !important;
+    }
+}
+
+
+
+
+/* Campo do técnico responsável */
+.campo-tecnico {
+    width: 100%;
+    max-width: 650px;
+    margin: 20px 0 10px;
+}
+
+.campo-tecnico label {
+    display: block;
+    color: #e2e8f0;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#nomeTecnico {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    background-color: #0f172a;
+    color: #f8fafc;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+#nomeTecnico:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
+
+/* Identificação no relatório */
+#resultadoRelatorio .data-relatorio,
+#resultadoRelatorio .tecnico-relatorio {
+    color: #cbd5e1;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+/* Cores adequadas para o PDF */
+@media print {
+    #resultadoRelatorio .data-relatorio,
+    #resultadoRelatorio .tecnico-relatorio {
+        color: #000 !important;
+    }
+}
+
+
+
+/* Campo do problema relatado */
+.campo-problema {
+    width: 100%;
+    max-width: 650px;
+    margin: 15px 0;
+}
+
+.campo-problema label {
+    display: block;
+    color: #e2e8f0;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#problemaRelatado {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    background-color: #0f172a;
+    color: #f8fafc;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    resize: vertical;
+}
+
+#problemaRelatado:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
+
+/* Problema relatado no relatório */
+#resultadoRelatorio .problema-relatorio {
+    color: #cbd5e1;
+    margin: 12px 0;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+/* Aparência no PDF */
+@media print {
+    #resultadoRelatorio .problema-relatorio {
+        color: #000 !important;
+    }
+}
+
+
+
+/* Campo da solução aplicada */
+.campo-solucao {
+    width: 100%;
+    max-width: 650px;
+    margin: 15px 0;
+}
+
+.campo-solucao label {
+    display: block;
+    color: #e2e8f0;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#solucaoAplicada {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    background-color: #0f172a;
+    color: #f8fafc;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    resize: vertical;
+}
+
+#solucaoAplicada:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
+
+/* Solução aplicada no relatório */
+#resultadoRelatorio .solucao-relatorio {
+    color: #cbd5e1;
+    margin: 12px 0;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+/* Aparência no PDF */
+@media print {
+    #resultadoRelatorio .solucao-relatorio {
+        color: #000 !important;
+    }
+}
+
+
+
+/* Campo de status do atendimento */
+.campo-status {
+    width: 100%;
+    max-width: 650px;
+    margin: 15px 0;
+}
+
+.campo-status label {
+    display: block;
+    color: #e2e8f0;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#statusAtendimento {
+    width: 100%;
+    padding: 12px;
+    background-color: #0f172a;
+    color: #f8fafc;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#statusAtendimento:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
+
+/* Status no relatório */
+#resultadoRelatorio .status-relatorio {
+    margin: 12px 0;
+    font-weight: bold;
+}
+
+/* Cores de cada status */
+#resultadoRelatorio .status-pendente {
+    color: #facc15 !important;
+}
+
+#resultadoRelatorio .status-andamento {
+    color: #38bdf8 !important;
+}
+
+#resultadoRelatorio .status-concluido {
+    color: #4ade80 !important;
+}
+
+/* Impressão em PDF */
+@media print {
+    #resultadoRelatorio .status-relatorio {
+        color: #000 !important;
+    }
+}
+
+
+
+/* Campo do nome do cliente */
+.campo-cliente {
+    width: 100%;
+    max-width: 650px;
+    margin: 15px 0;
+}
+
+.campo-cliente label {
+    display: block;
+    color: #e2e8f0;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#nomeCliente {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    background-color: #0f172a;
+    color: #f8fafc;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+#nomeCliente:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
+
+/* Nome do cliente no relatório */
+#resultadoRelatorio .cliente-relatorio {
+    color: #cbd5e1;
+    margin: 8px 0;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+/* Aparência no PDF */
+@media print {
+    #resultadoRelatorio .cliente-relatorio {
+        color: #000 !important;
+    }
+}
+
+
+
+/* Número de protocolo do relatório */
+#resultadoRelatorio .protocolo-relatorio {
+    color: #38bdf8 !important;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 12px 0;
+    padding: 12px;
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-left: 4px solid #38bdf8;
+    border-radius: 6px;
+    overflow-wrap: anywhere;
+}
+
+/* Aparência do protocolo no PDF */
+@media print {
+    #resultadoRelatorio .protocolo-relatorio {
+        color: #000 !important;
+        background-color: #f1f5f9 !important;
+        border: 1px solid #ccc !important;
+        border-left: 4px solid #333 !important;
+    }
+}
+
+
+
+/* Campo de observações técnicas */
+.campo-observacoes {
+    width: 100%;
+    max-width: 650px;
+    margin: 15px 0;
+}
+
+.campo-observacoes label {
+    display: block;
+    color: #e2e8f0;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#observacoesTecnicas {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    background-color: #0f172a;
+    color: #f8fafc;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    resize: vertical;
+}
+
+#observacoesTecnicas:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
+
+/* Observações no relatório */
+#resultadoRelatorio .observacoes-relatorio {
+    color: #cbd5e1;
+    margin: 12px 0;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+/* Aparência no PDF */
+@media print {
+    #resultadoRelatorio .observacoes-relatorio {
+        color: #000 !important;
+    }
+}
+
+
+
+/* Campo da data de conclusão */
+.campo-conclusao {
+    width: 100%;
+    max-width: 650px;
+    margin: 15px 0;
+}
+
+.campo-conclusao label {
+    display: block;
+    color: #e2e8f0;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#dataConclusao {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    background-color: #0f172a;
+    color: #f8fafc;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    color-scheme: dark;
+}
+
+#dataConclusao:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
+
+/* Data de conclusão no relatório */
+#resultadoRelatorio .conclusao-relatorio {
+    color: #cbd5e1;
+    margin: 12px 0;
+    font-size: 14px;
+}
+
+/* Aparência no PDF */
+@media print {
+    #resultadoRelatorio .conclusao-relatorio {
+        color: #000 !important;
+    }
+}
+
+
+
+
+
+
+
+/* Correção da impressão do relatório */
+@media print {
+
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        min-height: 0 !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    /* Mantém o relatório visível */
+    #resultadoRelatorio,
+    #resultadoRelatorio * {
+        visibility: visible !important;
+    }
+
+    #resultadoRelatorio {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #resultadoRelatorio .informacao {
+        padding: 5px 0 !important;
+        break-inside: avoid;
+    }
+
+    #resultadoRelatorio p {
+        margin: 5px 0 !important;
+    }
+
+    @page {
+        size: A4;
+        margin: 10mm;
+    }
+}
+
+
+
+
+/* CONFIGURAÇÃO FINAL DO PDF */
+@media print {
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: auto !important;
+        min-height: 0 !important;
+        overflow: visible !important;
+    }
+
+    body * {
+        visibility: hidden !important;
+    }
+
+    /* Oculta elementos fora do relatório sem ocupar espaço */
+    body > * {
+        display: none !important;
+    }
+
+    /* Mantém o relatório visível em uma área independente */
+    #resultadoRelatorio,
+    #resultadoRelatorio * {
+        visibility: visible !important;
+    }
+
+    #resultadoRelatorio {
+        display: block !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+
+    #resultadoRelatorio .painel-diagnostico {
+        display: block !important;
+        background: white !important;
+        color: black !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+}
+
+
+
+
+/* MELHORIAS VISUAIS DO TECHDIAGNÓSTICO */
+@media screen {
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    h1 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px !important;
+        font-weight: 600;
+        transition: background-color 0.2s, transform 0.2s;
+    }
+
+    button:hover:not(:disabled) {
+        transform: translateY(-2px);
+    }
+
+    input,
+    textarea,
+    select {
+        font-size: 15px !important;
+    }
+}
+
+
+
+
+/* PAINEL MODERNO DE DIAGNÓSTICOS */
+@media screen {
+
+    .secao-diagnosticos {
+        width: 90%;
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 25px;
+        background-color: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 16px;
+        box-sizing: border-box;
+    }
+
+    .secao-diagnosticos h2 {
+        color: #38bdf8;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .grade-diagnosticos {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        align-items: start;
+    }
+
+    .grade-diagnosticos > button {
+        width: 100%;
+        min-height: 55px;
+        margin: 0 !important;
+        padding: 12px 16px;
+        font-size: 15px !important;
+        border-radius: 10px;
+    }
+
+    /* Resultados ocupam as duas colunas */
+    .grade-diagnosticos > div {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    /* Layout para celulares */
+    @media (max-width: 600px) {
+        .secao-diagnosticos {
+            width: 95%;
+            padding: 15px;
+        }
+
+        .grade-diagnosticos {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+
+
+/* CORREÇÃO DA GRADE DE DIAGNÓSTICOS */
+@media screen {
+
+    .grade-diagnosticos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    /* Remove da grade os resultados que estão vazios */
+    .grade-diagnosticos > div:empty {
+        display: none !important;
+    }
+
+    /* Mantém os resultados preenchidos visíveis */
+    .grade-diagnosticos > div:not(:empty) {
+        display: block;
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    /* Botões com largura uniforme */
+    .grade-diagnosticos > button {
+        width: 100% !important;
+        min-height: 52px;
+        margin: 0 !important;
+        font-size: 15px !important;
+    }
+
+    @media (max-width: 600px) {
+        .grade-diagnosticos {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+
+
+/* VISUAL FINAL DO FORMULÁRIO */
+@media screen {
+
+    .campo-cliente,
+    .campo-tecnico,
+    .campo-problema,
+    .campo-solucao,
+    .campo-status,
+    .campo-observacoes,
+    .campo-conclusao {
+        width: 90%;
+        max-width: 650px;
+        margin: 14px auto;
+        text-align: left;
+    }
+
+    .campo-cliente label,
+    .campo-tecnico label,
+    .campo-problema label,
+    .campo-solucao label,
+    .campo-status label,
+    .campo-observacoes label,
+    .campo-conclusao label {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    input,
+    textarea,
+    select {
+        border-radius: 8px;
+        box-sizing: border-box;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+        outline: 2px solid #38bdf8;
+        outline-offset: 1px;
+    }
+}
+
+
+
+/* PAINEL MODERNO DO RELATÓRIO TÉCNICO */
+@media screen {
+
+    .secao-relatorio {
+        width: 90%;
+        max-width: 950px;
+        margin: 25px auto 40px;
+        padding: 28px;
+        box-sizing: border-box;
+        background-color: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 16px;
+        text-align: left;
+    }
+
+    .secao-relatorio h2 {
+        color: #f8fafc;
+        font-size: 24px;
+        margin: 0 0 5px;
+        text-align: left;
+    }
+
+    .secao-relatorio > p {
+        color: #94a3b8;
+        font-size: 14px;
+        margin: 0 0 24px;
+        text-align: left;
+    }
+
+    /* Campos ocupando a largura do painel */
+    .secao-relatorio .campo-cliente,
+    .secao-relatorio .campo-tecnico,
+    .secao-relatorio .campo-problema,
+    .secao-relatorio .campo-solucao,
+    .secao-relatorio .campo-status,
+    .secao-relatorio .campo-observacoes,
+    .secao-relatorio .campo-conclusao {
+        width: 100%;
+        max-width: none;
+        margin: 0 0 16px;
+    }
+
+    .secao-relatorio input,
+    .secao-relatorio textarea,
+    .secao-relatorio select {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        font-size: 15px !important;
+        padding: 12px;
+    }
+
+    /* Botão principal */
+    .secao-relatorio #btnRelatorio {
+        display: block;
+        width: 100%;
+        margin: 18px 0 12px;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 16px !important;
+    }
+
+    /* Botão para salvar o PDF */
+    .secao-relatorio #btnSalvarPDF {
+        width: 100%;
+        margin: 12px 0;
+    }
+
+    @media (max-width: 600px) {
+        .secao-relatorio {
+            width: 95%;
+            padding: 18px;
+        }
+    }
+}
+
+
+
+/* CARTÕES MODERNOS DOS DIAGNÓSTICOS */
+@media screen {
+
+    .grade-diagnosticos > button {
+        background-color: #1e293b !important;
+        border: 1px solid #334155 !important;
+        border-radius: 12px !important;
+        color: #f8fafc !important;
+
+        min-height: 95px;
+        padding: 15px !important;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        font-size: 15px !important;
+        font-weight: 600;
+    }
+
+    /* Ícone de computador */
+    .grade-diagnosticos > button::before {
+        content: "🖥";
+        display: block;
+        font-size: 28px;
+        line-height: 1;
+        color: #38bdf8;
+    }
+
+    .grade-diagnosticos > button:hover:not(:disabled) {
+        background-color: #263449 !important;
+        border-color: #38bdf8 !important;
+        transform: translateY(-3px);
+    }
+
+    .grade-diagnosticos > button:disabled {
+        opacity: 0.65;
+    }
+}
+
+
+
+
+/* ALINHAMENTO FINAL DOS CARTÕES */
+@media screen and (min-width: 601px) {
+
+    .grade-diagnosticos > #btnDiagnostico {
+        grid-column: 1 / -1;
+        width: 100% !important;
+    }
+
+    .grade-diagnosticos > #btnRedeLocal {
+        grid-column: 1 / -1;
+        width: 100% !important;
+    }
+}
+
+
+
+/* CORREÇÃO DEFINITIVA DA GRADE */
+@media screen and (min-width: 601px) {
+
+    .grade-diagnosticos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-flow: row;
+    }
+
+    /* Resultados vazios não ocupam espaço */
+    .grade-diagnosticos > div:empty {
+        display: none !important;
+    }
+
+    /* Primeiro botão */
+    .grade-diagnosticos > #btnDiagnostico {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    /* Oito botões intermediários */
+    .grade-diagnosticos > #btnRede {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .grade-diagnosticos > #btnDNS {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .grade-diagnosticos > #btnMemoria {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .grade-diagnosticos > #btnCPU {
+        grid-column: 2;
+        grid-row: 3;
+    }
+
+    .grade-diagnosticos > #btnDisco {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    .grade-diagnosticos > #btnProcessos {
+        grid-column: 2;
+        grid-row: 4;
+    }
+
+    .grade-diagnosticos > #btnServicos {
+        grid-column: 1;
+        grid-row: 5;
+    }
+
+    .grade-diagnosticos > #btnUptime {
+        grid-column: 2;
+        grid-row: 5;
+    }
+
+    /* Último botão */
+    .grade-diagnosticos > #btnRedeLocal {
+        grid-column: 1 / -1;
+        grid-row: 6;
+        width: 100% !important;
+    }
+}
+

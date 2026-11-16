@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>TechDiagnóstico | Central de TI</title>
+</head>
+<body>
+
+    <h1>TechDiagnóstico</h1>
+
+    <h2>Central de Diagnóstico de TI</h2>
+
+    <p>
+        Sistema desenvolvido para auxiliar profissionais
+        de suporte técnico na identificação de problemas
+        em computadores e redes.
+    </p>
+
+
+
+    <section class="secao-diagnosticos">
+    <h2>Ferramentas de Diagnóstico</h2>
+    <div class="grade-diagnosticos">
+
+    
+    <button id="btnDiagnostico">Iniciar Diagnóstico</button>
+
+    <p id="resultadoDiagnostico"></p>
+
+    <button id="btnRede">Diagnosticar Rede</button>
+
+    <div id="resultadoRede"></div>
+
+    <button id="btnDNS">Diagnosticar DNS</button>
+
+    <div id="resultadoDNS"></div>
+
+    <button id="btnMemoria">Diagnosticar Memória RAM</button>
+
+    <div id="resultadoMemoria"></div>
+
+    <button id="btnCPU">Diagnosticar Processador (CPU)</button>
+
+    <div id="resultadoCPU"></div>
+
+    <button id="btnDisco">Diagnosticar Armazenamento</button>
+
+    <div id="resultadoDisco"></div>
+
+
+    <button id="btnProcessos">Diagnosticar Processos</button>
+
+    <div id="resultadoProcessos"></div>
+
+
+    <button id="btnServicos">Diagnosticar Serviços do Windows</button>
+
+    <div id="resultadoServicos"></div>
+
+    <button id="btnUptime">Verificar Tempo de Atividade</button>
+
+    <div id="resultadoUptime"></div>
+
+    <button id="btnRedeLocal">Diagnosticar Rede Local</button>
+
+    <div id="resultadoRedeLocal"></div>
+
+
+    
+    </div>
+</section>
+
+
+
+    <div class="campo-cliente">
+        <label for="nomeCliente">Nome do cliente:</label>
+
+        <input
+            type="text"
+            id="nomeCliente"
+            placeholder="Digite o nome do cliente"
+        >
+    </div>
+
+
+
+    <div class="campo-tecnico">
+        <label for="nomeTecnico">Técnico responsável:</label>
+        <input
+            type="text"
+            id="nomeTecnico"
+            placeholder="Digite o nome do técnico"
+        >
+    </div>
+
+
+    <div class="campo-problema">
+        <label for="problemaRelatado">Problema relatado:</label>
+
+        <textarea
+            id="problemaRelatado"
+            rows="4"
+            placeholder="Descreva o problema informado pelo usuário"
+        ></textarea>
+    </div>
+
+
+
+    <div class="campo-solucao">
+        <label for="solucaoAplicada">Solução aplicada:</label>
+
+        <textarea
+            id="solucaoAplicada"
+            rows="4"
+            placeholder="Descreva os procedimentos realizados no atendimento"
+        ></textarea>
+    </div>
+
+
+
+    <div class="campo-status">
+        <label for="statusAtendimento">Status do atendimento:</label>
+
+        <select id="statusAtendimento">
+            <option value="Pendente">Pendente</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Concluído">Concluído</option>
+        </select>
+    </div>
+
+
+    <div class="campo-observacoes">
+        <label for="observacoesTecnicas">Observações técnicas:</label>
+
+        <textarea
+            id="observacoesTecnicas"
+            rows="4"
+            placeholder="Digite recomendações ou informações adicionais"
+        ></textarea>
+    </div>
+
+
+<div class="campo-conclusao">
+    <label for="dataConclusao">Data de conclusão:</label>
+
+    <input
+        type="date"
+        id="dataConclusao"
+    >
+</div>
+
+
+
+
+    <button id="btnRelatorio">Gerar Relatório Técnico</button>
+
+    <div id="resultadoRelatorio"></div>
+
+    <button id="btnSalvarPDF" style="display: none;">
+        Salvar Relatório em PDF
+    </button>
+
+
+</section>
+
+
+
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
