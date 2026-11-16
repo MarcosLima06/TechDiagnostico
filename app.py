@@ -13,15 +13,20 @@ app = Flask(__name__)
 MODO_DEMO = os.environ.get("MODO_DEMO", "false").lower() == "true"
 
 
+
 @app.before_request
 def proteger_diagnosticos():
     from flask import request
 
     if MODO_DEMO and request.path.startswith("/api/"):
+        if request.path == "/api/relatorio":
+            return None
+
         return jsonify({
             "modo_demo": True,
             "mensagem": "Diagnóstico real disponível apenas na versão local."
         }), 403
+
 
 
 
@@ -260,6 +265,32 @@ def diagnosticar_rede_local():
 
 @app.route("/api/relatorio")
 def gerar_relatorio():
+    
+    
+    if MODO_DEMO:
+        return jsonify({
+            "sistema_operacional": "Windows 11 (simulação)",
+            "versao": "Demonstração",
+            "arquitetura": "64 bits",
+            "nome_computador": "PC-DEMO",
+            "processador": {
+                "uso_percentual": 25,
+                "nucleos_fisicos": 4,
+                "processadores_logicos": 8
+            },
+            "memoria_ram": {
+                "total_gb": 16,
+                "disponivel_gb": 10,
+                "uso_percentual": 37.5
+            },
+            "armazenamento": {
+                "total_gb": 512,
+                "disponivel_gb": 320,
+                "uso_percentual": 37.5
+            }
+        })
+
+    
     memoria = psutil.virtual_memory()
     disco = psutil.disk_usage("C:\\")
     cpu = psutil.cpu_percent(interval=1)
