@@ -13,6 +13,18 @@ app = Flask(__name__)
 MODO_DEMO = os.environ.get("MODO_DEMO", "false").lower() == "true"
 
 
+@app.before_request
+def proteger_diagnosticos():
+    from flask import request
+
+    if MODO_DEMO and request.path.startswith("/api/"):
+        return jsonify({
+            "modo_demo": True,
+            "mensagem": "Diagnóstico real disponível apenas na versão local."
+        }), 403
+
+
+
 @app.route("/")
 def inicio():
     return render_template("index.html")
